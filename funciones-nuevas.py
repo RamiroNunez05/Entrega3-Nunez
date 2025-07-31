@@ -1,1 +1,0 @@
-#en este archivo hay funciones nuevas
