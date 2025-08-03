@@ -15,3 +15,7 @@ def crear_familiar(request, nom):
         Familiar.objects.create(
             nombre=nom, edad=30, fecha_nacimiento="1995-02-02", parentesco="Hermano")
     return render(request, 'proyecto3_app/crear-familiar.html', {"familiar": nom})
+
+def listar_familiares(request):
+    familiares = Familiar.objects.all()
+    return render(request, 'proyecto3_app/listar-familiares.html', {"familiares": familiares})

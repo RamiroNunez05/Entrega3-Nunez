@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Familiares</title>
+  <style>
+    :root {
+      --color-principal: #f4a261;
+      --color-secundario: #e76f51;
+      --color-fondo: #fff3e6;
+      --color-header: #fefae0;
+      --color-texto: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      padding: 2rem;
+    }
+
+    h1 {
+      color: var(--color-secundario);
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    li {
+      background-color: white;
+      border-left: 6px solid var(--color-principal);
+      margin-bottom: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    li strong {
+      color: var(--color-secundario);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Familiares Registrados</h1>
+
+  <ul>
+    {% for familiar in familiares %}
+      <li>
+        <strong>Nombre:</strong> {{ familiar.nombre }}<br>
+        <strong>Edad:</strong> {{ familiar.edad }} años<br>
+        <strong>Fecha de nacimiento:</strong> {{ familiar.fecha_nacimiento }}<br>
+        <strong>Parentesco:</strong> {{ familiar.parentesco }}
+      </li>
+    {% endfor %}
+  </ul>
+
+</body>
+</html>
