@@ -6,4 +6,5 @@ urlpatterns = [
         path('hola/', views.hola, name='hola'),
         path('crear-familiar/<str:nom>', views.crear_familiar, name='crear-familiar'),
         path('listar-familiares/', views.listar_familiares, name='listar-familiares'),
+        path('compra/', views.comprar, name='compra'),
 ]

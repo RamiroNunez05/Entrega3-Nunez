@@ -19,3 +19,6 @@ def crear_familiar(request, nom):
 def listar_familiares(request):
     familiares = Familiar.objects.all()
     return render(request, 'proyecto3_app/listar-familiares.html', {"familiares": familiares})
+
+def comprar(request):
+    pass
