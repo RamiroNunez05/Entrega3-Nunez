@@ -1,4 +1,11 @@
 from django import forms
+from datetime import date
+
+class FamiliarForm(forms.Form):
+    nombre = forms.CharField(max_length=100, label='Nombre')
+    edad = forms.IntegerField(label='Edad')
+    parentesco = forms.CharField(max_length=50, label='Parentesco')
+    fecha_nacimiento = forms.DateField(widget=forms.SelectDateWidget(years=range(1900, date.today().year)),label='Fecha de Nacimiento')
 
 class CompraForm(forms.Form):
     descripcion = forms.CharField(widget=forms.Textarea, label='Descripción')

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Familiar, Compra, Vuelo
-from .forms import CompraForm, VueloForm
+from .forms import CompraForm, VueloForm, FamiliarForm
 
 # Create your views here.
 
@@ -11,11 +11,21 @@ def home(request):
 def hola(request):
     return HttpResponse("Hola Juan Carlos")
 
-def crear_familiar(request, nom):
-    if nom is not None:
-        Familiar.objects.create(
-            nombre=nom, edad=30, fecha_nacimiento="1995-02-02", parentesco="Hermano")
-    return render(request, 'proyecto3_app/crear-familiar.html', {"familiar": nom})
+def crear_familiar(request):
+    if request.method == 'POST':
+        form = FamiliarForm(request.POST)
+        if form.is_valid():
+            familiar = Familiar(
+                nombre=form.cleaned_data['nombre'],
+                edad=form.cleaned_data['edad'],
+                parentesco=form.cleaned_data['parentesco'],
+                fecha_nacimiento=form.cleaned_data['fecha_nacimiento'],
+            )
+            familiar.save()
+            return redirect('listar-familiares')
+
+    form = FamiliarForm()
+    return render(request, 'proyecto3_app/crear-familiar.html', {"form": form})
 
 def listar_familiares(request):
     familiares = Familiar.objects.all()
