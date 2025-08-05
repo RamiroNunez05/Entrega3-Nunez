@@ -7,4 +7,5 @@ urlpatterns = [
         path('crear-familiar/<str:nom>', views.crear_familiar, name='crear-familiar'),
         path('listar-familiares/', views.listar_familiares, name='listar-familiares'),
         path('compra/', views.comprar, name='compra'),
+        path('ultimas-compras/', views.ultimas_compras, name='ultimas-compras'),
 ]

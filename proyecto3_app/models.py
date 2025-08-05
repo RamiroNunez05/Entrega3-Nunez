@@ -11,10 +11,10 @@ class Familiar(models.Model):
     def __str__(self):
         return f"{self.nombre} ({self.edad} años) - ({self.parentesco})"
 
-class Tienda(models.Model):
-    descripcion = models.TextField()
+class Compra(models.Model):
+    descripcion = models.CharField()
     precio = models.FloatField()
     cantidad = models.IntegerField()
 
     def __str__(self):
-        return f"{self.descripcion} Precio: ${self.precio} - Cantidad: {self.cantidad}"
+        return self.descripcion

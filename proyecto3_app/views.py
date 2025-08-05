@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Familiar
+from .models import Familiar, Compra
+from .forms import CompraForm
 
 # Create your views here.
 
@@ -21,4 +22,20 @@ def listar_familiares(request):
     return render(request, 'proyecto3_app/listar-familiares.html', {"familiares": familiares})
 
 def comprar(request):
-    pass
+    if request.method == 'POST':
+        form = CompraForm(request.POST)
+        if form.is_valid():
+            compra = Compra(
+            descripcion = form.cleaned_data['descripcion'],
+            precio = form.cleaned_data['precio'],
+            cantidad = form.cleaned_data['cantidad'],
+        )
+        compra.save()
+        return redirect('ultimas-compras')
+
+    form = CompraForm()
+    return render(request, 'proyecto3_app/tienda-compra.html', {"form": form})
+
+def ultimas_compras(request):
+    compras = Compra.objects.all().order_by('-id')
+    return render(request, 'proyecto3_app/ultimas-compras.html', {"compras": compras})

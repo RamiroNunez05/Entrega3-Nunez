@@ -48,15 +48,14 @@
 </head>
 <body>
 
-  <h1>Familiares Registrados</h1>
+  <h1>Ultimas Compras Registradas</h1>
 
   <ul>
-    {% for familiar in familiares %}
+    {% for compra in compras %}
       <li>
-        <strong>Nombre:</strong> {{ familiar.nombre }}<br>
-        <strong>Edad:</strong> {{ familiar.edad }} años<br>
-        <strong>Fecha de nacimiento:</strong> {{ familiar.fecha_nacimiento }}<br>
-        <strong>Parentesco:</strong> {{ familiar.parentesco }}
+        <strong>Descripcion:</strong> {{ compra.descripcion }}<br>
+        <strong>Precio:</strong> {{ compra.precio }} años<br>
+        <strong>Cantidad:</strong> {{ compra.cantidad }}<br>
       </li>
     {% endfor %}
   </ul>
