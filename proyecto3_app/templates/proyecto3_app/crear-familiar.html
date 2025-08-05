@@ -1,77 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HomePage Núñez</title>
-  <style>
-    :root {
-      --color-principal: #f4a261;
-      --color-secundario: #e76f51;
-      --color-fondo: #fff3e6;
-      --color-header: #fefae0;
-      --color-texto: #333;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background-color: var(--color-header);
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    header h1 {
-      margin: 0;
-      color: var(--color-secundario);
-      font-size: 1.8rem;
-    }
-
-    .mensaje-exito {
-      margin: 4rem auto;
-      padding: 1rem 2rem;
-      max-width: 600px;
-      background-color: #ffe8d6;
-      color: #6a2c70;
-      border-left: 6px solid var(--color-principal);
-      border-radius: 0.5rem;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 1rem;
-      background-color: var(--color-header);
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Mi Sitio Cálido</h1>
-  </header>
-
+{% extends "padre.html" %}
+{% block cajas %}
   <div class="mensaje-exito">
-    Familiar creado: {{familiar}}
+    Familiar Creado: {{familiar}}
   </div>
-
+{% endblock cajas %}
   <footer>
-    &copy; 2025 - Diseñado con ❤️ y una paleta cálida.
+    &copy; 2025 - Todos los derechos reservados.
   </footer>
 
 </body>

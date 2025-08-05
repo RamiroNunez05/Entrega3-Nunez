@@ -1,86 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>HomePage Núñez</title>
-  <style>
-    :root {
-      --color-principal: #f4a261;
-      --color-secundario: #e76f51;
-      --color-fondo: #fff3e6;
-      --color-header: #fefae0;
-      --color-texto: #333;
-    }
+{% extends "padre.html" %}
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
+{% block titulo %}
+  <h2>Comprar en la Tienda</h2>
+{% endblock titulo %}
+
+{% block cajas %}
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 2rem;">
+    <form action="" method="POST" style="
+      background: #fff3e6;
+      border-left: 6px solid #f4a261;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      border-radius: 0.75rem;
+      padding: 2rem 2.5rem;
+      min-width: 260px;
+      max-width: 340px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    h2 {
-      color: var(--color-secundario);
-      margin-bottom: 1rem;
-    }
-
-    form {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 500px;
-    }
-
-    form p {
-      margin-bottom: 1.2rem;
-    }
-
-    label {
-      font-weight: bold;
-      color: var(--color-principal);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      margin-top: 0.3rem;
-      font-size: 1rem;
-    }
-
-    button[type="submit"] {
-      margin-top: 1rem;
-      background-color: var(--color-principal);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    button[type="submit"]:hover {
-      background-color: var(--color-secundario);
-    }
-  </style>
-</head>
-<body>
-
-  <h2>Comprar en la Tienda</h2>
-
-  <form action="" method="POST">
-    {% csrf_token %}    
-    {{ form.as_p }}
-    <button type="submit">Comprar</button>
-  </form>
-
-</body>
-</html>
+      gap: 1.2rem;
+    ">
+      {% csrf_token %}    
+      {{ form.as_p }}
+      <button type="submit" style="
+        background: #e76f51;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      " onmouseover="this.style.background='#f4a261'" onmouseout="this.style.background='#e76f51'">
+        Comprar
+      </button>
+    </form>
+  </div>
+{% endblock cajas %}
