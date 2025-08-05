@@ -8,9 +8,6 @@ from .forms import CompraForm, VueloForm, FamiliarForm
 def home(request):
     return render( request, "proyecto3_app/home.html")
 
-def hola(request):
-    return HttpResponse("Hola Juan Carlos")
-
 def crear_familiar(request):
     if request.method == 'POST':
         form = FamiliarForm(request.POST)
