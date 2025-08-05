@@ -18,3 +18,13 @@ class Compra(models.Model):
 
     def __str__(self):
         return self.descripcion
+
+class Vuelo(models.Model):
+    origen = models.CharField(max_length=100)
+    destino = models.CharField(max_length=100)
+    fecha_salida = models.DateField()
+    horario = models.TimeField()
+    precio = models.FloatField()
+
+    def __str__(self):
+        return f"Vuelo de {self.origen} a {self.destino} - ${self.precio}"

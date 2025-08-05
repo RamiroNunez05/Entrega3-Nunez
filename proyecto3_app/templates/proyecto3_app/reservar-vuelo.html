@@ -1,0 +1,37 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  <h2>Reservar Vuelo</h2>
+{% endblock titulo %}
+
+{% block cajas %}
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 2rem;">
+    <form action="" method="POST" style="
+      background: #fff3e6;
+      border-left: 6px solid #f4a261;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      border-radius: 0.75rem;
+      padding: 2rem 2.5rem;
+      min-width: 260px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    ">
+      {% csrf_token %}    
+      {{ form.as_p }}
+      <button type="submit" style="
+        background: #e76f51;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      " onmouseover="this.style.background='#f4a261'" onmouseout="this.style.background='#e76f51'">
+        Listo
+      </button>
+    </form>
+  </div>
+{% endblock cajas %}

@@ -1,12 +1,12 @@
 {% extends "padre.html" %}
 
 {% block titulo %}
-  <h1>Últimas Compras</h1>
+  <h1>Vuelos Reservados</h1>
 {% endblock titulo %}
 
 {% block cajas %}
   <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-bottom: 2rem;">
-    <form method="GET" action="{% url 'buscar-compras' %}" style="
+    <form method="GET" action="{% url 'buscar-vuelos' %}" style="
       background: #fff3e6;
       border-left: 6px solid #f4a261;
       box-shadow: 0 4px 10px rgba(0,0,0,0.07);
@@ -19,7 +19,7 @@
       align-items: center;
       gap: 1rem;
     ">
-      <input type="text" name="descripcion" placeholder="Buscar Compra..." value="{{ descripcion }}" style="
+      <input type="text" name="destino" placeholder="Buscar vuelo por destino..." value="{{ destino }}" style="
         flex: 1;
         padding: 0.6rem 1rem;
         border: 1px solid #f4a261;
@@ -42,7 +42,7 @@
     </form>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; justify-content: center;">
-    {% for compra in compras %}
+    {% for vuelo in vuelos %}
       <div style="
         background: #fff3e6;
         border-left: 6px solid #f4a261;
@@ -54,13 +54,15 @@
         margin-bottom: 1rem;
       ">
         <div style="font-weight: bold; color: #e76f51; font-size: 1.1rem;">
-          {{ compra.descripcion }}
+          Destino: {{ vuelo.destino }}
         </div>
-        <div><strong>Precio:</strong> ${{ compra.precio }}</div>
-        <div><strong>Cantidad:</strong> {{ compra.cantidad }}</div>
+        <div><strong>Origen:</strong> {{ vuelo.origen }}</div>
+        <div><strong>Fecha:</strong> {{ vuelo.fecha_salida }}</div>
+        <div><strong>Horario:</strong> {{ vuelo.horario }}</div>
+        <div><strong>Precio:</strong> $ {{ vuelo.precio }}</div>
       </div>
     {% empty %}
-      <p>No hay compras registradas con esa descripción.</p>
+      <p>No hay vuelos resgistrados con esa descripcion.</p>
     {% endfor %}
   </div>
 {% endblock cajas %}
